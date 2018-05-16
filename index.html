@@ -4,43 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>first</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./css/animate.css">
     <link rel="stylesheet" href="./css/index.css">
 </head>
-<script>
-    var main = document.getElementsByClassName('main');
-    var left = document.getElementsByClassName('left');
-    var right = document.getElementsByClassName('right');
-    var content = document.getElementsByClassName('content');
-    window.onload = function(){
-        h = window.innerHeight;
-        w = window.innerWidth;
-        main[0].style.height = h + 'px';
-        left[0].style.height = h + 'px';
-        content[0].style.height = h + 'px';
-    }
-</script>
 <body>
-    <div class="main">
-        <div class="left"></div>
-        <div class="content">
-            <div class="content-main">
-                <div class="tan">
-                    <div class="tan-top">
-                        <div class="head"><span>cur</span></div>
-                    </div>
-                    <div class="tan-down"></div>
+    <script>
+        var main = document.getElementsByClassName('main');
+        //var left = document.getElementsByClassName('left');
+        //var right = document.getElementsByClassName('right');
+        //var content = document.getElementsByClassName('content');
+        window.onload = function(){
+            h = window.innerHeight;
+            //w = window.innerWidth;
+            main[0].style.height = h + 'px';
+            // left[0].style.height = h + 'px';
+            //left[0].style.width = w + 'px';
+            // content[0].style.height = h + 'px';
+        }
+    </script>
+    <body>
+        <div class="main">
+            <div class="left">
+                <div class="head">
+                    <div class="headImg"></div>
                 </div>
-                <div class="xing">
-                    <div class="tan-top">
-                        <div class="head"><span>luo</span></div>
+                <div class="leftDown">
+                    <h1>curyainTan</h1>
+                    <div class="back"><button>Back</button></div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-main">
+                    <div class="tan">
+                        <div class="tan-top">
+                            <div class="head"><span>cur</span></div>
+                        </div>
+                        <div class="tan-down">
+                            <ul>
+                                <li>
+                                    <h2>curtainTan</h2>
+                                    <p>路漫漫其修远兮，吾将上下而求索</p>
+                                </li>
+                                <li><span>skill: PS&js</span></li>
+                                <li><span>fhags</span></li>
+                                <li><button><span>more</span></button></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="tan-down"></div>
+                    <div class="brand">
+                        <h1>curtainTan</h1>
+                    </div>
+                    <div class="xing">
+                        <div class="tan-top">
+                            <div class="head"><span>luo</span></div>
+                        </div>
+                        <div class="tan-down">
+                            <ul>
+                                <li>
+                                    <h2>curtainTan</h2>
+                                    <p>路漫漫其修远兮，吾将上下而求索</p>
+                                </li>
+                                <li><span>skill: PS&js</span></li>
+                                <li><span>fhags</span></li>
+                                <li><button><span>more</span></button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="head">
+                    <div class="headImg"></div>
+                </div>
+                <div class="leftDown">
+                    <h1>luo</h1>
+                    <div class="back"><button>Back</button></div>
                 </div>
             </div>
         </div>
-        <div class="right"></div>
-    </div>
+        <script src="./js/index.js"></script>
 </body>
 </html>

@@ -17,18 +17,30 @@
     transform-style: preserve-3d;
 }
 
-.main .left{
+.main .left,
+.main .right{
     position: absolute;
     top: 0;
-    width: 50%;
-    z-index: 2;
-    transform-origin: right;
     left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
     transform: translateZ(-300px);
+    width: 80%;
+    height: 100%;
+    visibility: hidden;
+    background-color: rgb(255, 255, 255);
 }
 .main .content{
     position: absolute;
-    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    transform: translateZ(-300px);
+    width: 80%;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0);
 }
 
@@ -39,48 +51,66 @@
     right: 0;
     left: 0;
     margin: auto;
-    width: 60%;
-    height: 60%;
-    background-color: aqua;
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+    background-color: rgb(184, 184, 184);
 }
 
 .content .content-main .tan,
 .content .content-main .xing{
-    width: 300px;
-    height: 80%;
-    margin: 30px;
-    background-color: azure;
-    border-radius: 20px;
+    width: 30%;
+    height: 70%;
+    margin: 90px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
     box-shadow: 6px 6px 10px rgb(58, 58, 58);
+    transition: all .3s;
+}
+.content .content-main .brand{
+    text-align: center;
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: azure;
+    font: 20px "微软雅黑";
 }
 .content .content-main .tan{
-    float: left;
+    position: absolute;
+    left: 0;
 }
 .content .content-main .xing{
-    float: right;
+    position: absolute;
+    right: 0;
 }
 
 .tan-top{
     width: 100%;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     height: 40%;
     background-color: rgb(94, 94, 94);
     position: relative;
 }
 .tan-top .head{
-    height: 90px;
-    width: 90px;
+    height: 140px;
+    width: 140px;
     border-radius: 50%;
     position: absolute;
-    bottom: -35px;
+    bottom: -45px;
     left: 0;
     right: 0;
     margin: auto;
     background-color: blueviolet;
-    font: 40px/85px "微软雅黑";
+    font: 60px/140px "微软雅黑";
     color: aquamarine;
     text-align: center;
+    transition: all .4s;
 }
 
 .tan-top .head::after{
@@ -88,11 +118,172 @@
     position: absolute;
     left: -20px;
     top: -20px;
-    height: 110px;
-    width: 110px;
-    border: 10px solid rgb(194, 194, 194);
+    height: 160px;
+    width: 160px;
+    border: 10px solid rgb(218, 213, 213);
     border-radius: 50%;
 }
+
+.tan-down ul{
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+}
+.tan-down ul li{
+    list-style: none;
+    position: relative;
+    visibility: hidden;
+    top: -40px;
+    padding: 8px 0;
+    padding-left: 20px;
+    color: rgb(79, 80, 80);
+    border-bottom: 1px solid rgb(150, 147, 147);
+    font: 18px/35px "微软雅黑";
+}
+.tan-down ul li h2{
+    margin-bottom: 25px;
+    font-size: 30px;
+}
+.tan-down ul li button{
+    border: none;
+    width: 125px;
+    padding: 10px 35px;
+    border-radius: 4px;
+    background: rgb(115, 125, 255);
+    color: aliceblue;
+    font-size: 20px;
+    transition: all .5s;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.tan-down ul li button span{
+    display: inline-block;
+    position: relative;
+    transition: .5s;
+}
+.tan-down ul li button span::after{
+    content: "»";
+    position: absolute;
+    color: aliceblue;
+    top: 0;
+    right: -20px;
+    opacity: 0;
+    transition: .5s;
+}
+.tan-down ul li button:hover{
+    background: rgb(81, 87, 170);
+}
+.tan-down ul li button:hover span{
+    padding-right: 35px;
+}
+.tan-down ul li button:hover span::after{
+    right: 10px;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 主页hover动画 */
+
+
+.main .content .content-main .tan:hover{
+    transform: scaleZ(50px);
+    box-shadow: 18px 18px 10px #777;
+}
+.main .content .content-main .xing:hover{
+    transform: scaleZ(50px);
+    box-shadow: 18px 18px 10px #777;
+}
+
+
+
+
+
+
+
+
+
+/* 左右边介绍 */
+
+.main .left .head,
+.main .right .head{
+    height: 30%;
+    width: 100%;
+    position: relative;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    background-color: aquamarine;
+    border: 3px solid aquamarine;
+}
+.main .left .head .headImg,
+.main .right .head .headImg{
+    height: 190px;
+    width: 190px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -45px;
+    left: 30%;
+    background-color: blueviolet;
+}
+.main .left .leftDown,
+.main .right .leftDown{
+    height: 70%;
+    width: 100%;
+    position: absolute;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border: 3px solid aquamarine;
+    border-top: 0;
+}
+.main .left .leftDown h1,
+.main .right .leftDown h1{
+    text-align: center;
+    color: blueviolet;
+    font: 70px/140px "微软雅黑";
+}
+.main .left .leftDown .back,
+.main .right .leftDown .back{
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    bottom: -70%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.main .left .leftDown .back button,
+.main .right .leftDown .back button{
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(144, 93, 240);
+    border-radius: 50px;
+    color: rgb(88, 179, 196);
+    font: 60px/100px "微软雅黑";
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,6 +295,26 @@
 
 
 /* 动画 */
+
+/* 
+.main .left{
+    transform: translateZ(-300px);
+    transform-origin: center;
+    animation: leftHidden 2s;
+    animation-fill-mode: forwards;
+} */
+
+
+/* 
+.main .content .content-main{
+    animation: rightShow 2s;
+    animation-delay: 5s;
+    animation-fill-mode: forwards;
+} */
+
+
+
+
 
 
 .content .tan,
@@ -124,4 +335,46 @@
     animation-delay: 3s;
     animation-fill-mode: forwards;
 }
+.tan-down ul li:nth-child(0){
+    animation: headLi .3s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+.tan-down ul li:nth-child(1){
+    animation: headLi .3s;
+    animation-delay: 3.3s;
+    animation-fill-mode: forwards;
+}
+.tan-down ul li:nth-child(2){
+    animation: headLi .3s;
+    animation-delay: 3.6s;
+    animation-fill-mode: forwards;
+}
+.tan-down ul li:nth-child(3){
+    animation: headLi .3s;
+    animation-delay: 3.9s;
+    animation-fill-mode: forwards;
+}
+.tan-down ul li:nth-child(4){
+    animation: headLi .3s;
+    animation-delay: 4.2s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
