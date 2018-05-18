@@ -50,8 +50,8 @@ rightBtn.onclick = function(){
 
 
 var audio = document.getElementsByTagName('audio');
-var musicPlay = document.getElementsByClassName('play');
-var arr = ["./muisc/tan.mp3","./muisc/tan.mp3"]
+var musicPlay = document.getElementsByClassName('jsPlay');
+var arr = ["./muisc/tan.mp3","./muisc/luo.mp3"]
 var name = []
 var mFlag = 1, s = -123 , ss =-123;
 for(let i = 0; i < musicPlay.length; i++){
@@ -63,9 +63,23 @@ for(let i = 0; i < musicPlay.length; i++){
                 ss = s;
             }
             audio[0].play();
+            musicPlay[s].classList.toggle("play");
+            musicPlay[s].classList.toggle("pause");
             mFlag = 0;
         }else{
             audio[0].pause();
+            if(ss !== s){
+                if(s === 1){
+                    musicPlay[s-1].classList.toggle("play");
+                    musicPlay[s-1].classList.toggle("pause");
+                }else{
+                    musicPlay[s+1].classList.toggle("play");
+                    musicPlay[s+1].classList.toggle("pause");
+                }
+            }else{
+                musicPlay[s].classList.toggle("play");
+                musicPlay[s].classList.toggle("pause");
+            }
             mFlag = 1;
         }
     }

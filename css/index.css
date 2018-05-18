@@ -80,6 +80,7 @@ html, body{
 .content .content-main .nav ul li{
     list-style: none;
     position: relative;
+    text-align: center;
     width: 110px;
     padding-top: 90px;
     color: rgb(47, 48, 48);
@@ -483,20 +484,6 @@ html, body{
     border: 2px solid #666;
     transition: .7s;
 }
-.music .control span:nth-child(2)::after{
-    left: 25px;
-    border-right: 5px solid #444;
-    border-top: 20px solid #444;
-    border-bottom: 20px solid #444;
-    border-left: 5px solid #444;
-}
-.music .control span:nth-child(2)::before{
-    left: -25px;
-    border-right: 5px solid #444;
-    border-top: 20px solid #444;
-    border-bottom: 20px solid #444;
-    border-left: 5px solid #444;
-}
 .music .control span:nth-child(3){
     position: relative;
     display: inline-block;
@@ -522,7 +509,7 @@ html, body{
 .music .control span:hover{
     border: 2px solid rgb(207, 15, 224);
 }
-
+/* 
 .music .control .pause{
     position: relative;
     display: inline-block;
@@ -530,13 +517,31 @@ html, body{
     height: 90px;
     border-radius: 50%;
     border: 2px solid #666;
-}
+} */
+
+
+/* 开始和暂停控件 */
+
 .music .control .pause::after{
+    left: 15px;
     border-top: 25px solid transparent;
     border-left: 45px solid #444;
     border-bottom: 25px solid transparent;
 }
-
+.music .control .play::after{
+    left: 25px;
+    border-right: 5px solid #444;
+    border-top: 20px solid #444;
+    border-bottom: 20px solid #444;
+    border-left: 5px solid #444;
+}
+.music .control .play::before{
+    left: -25px;
+    border-right: 5px solid #444;
+    border-top: 20px solid #444;
+    border-bottom: 20px solid #444;
+    border-left: 5px solid #444;
+}
 
 
 
