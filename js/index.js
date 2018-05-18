@@ -49,69 +49,27 @@ rightBtn.onclick = function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var audio = document.getElementsByTagName('audio');
+var musicPlay = document.getElementsByClassName('play');
+var arr = ["./muisc/tan.mp3","./muisc/tan.mp3"]
+var name = []
+var mFlag = 1, s = -123 , ss =-123;
+for(let i = 0; i < musicPlay.length; i++){
+    musicPlay[i].onclick = function(){
+        s = i;
+        if(mFlag){
+            if(ss !== s){
+                audio[0].src = arr[i];
+                ss = s;
+            }
+            audio[0].play();
+            mFlag = 0;
+        }else{
+            audio[0].pause();
+            mFlag = 1;
+        }
+    }
+}
 
 
 
