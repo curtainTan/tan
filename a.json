@@ -1,0 +1,88 @@
+{
+    "nickName": "赏金猎人",
+    "name": "厄运小姐",
+    "work": "射手",
+    "headImg": "https://ossweb-img.qq.com/images/lol/web201310/skin/big21001.jpg",
+    "attr": {
+        "物理攻击" : 90,
+        "魔法攻击" : 50,
+        "防御能力" : 30,
+        "上手难度" : 10
+    },
+    "story" : "以美貌闻名，但却以无情立命的莎拉是一位比尔吉沃特的船长，她在这座港镇的强硬犯罪集团中塑造了不容轻视的形象。在她还是个孩子的时候，亲眼目睹了海盗之王普朗克谋杀了自己的家人。多年以后她残忍地报仇雪恨，把他和他的旗舰连人带船一同炸飞。所有低估她的人都会发现，自己面对的是一个极具欺骗性的狡黠对手，还有可能要处理肚子里的一两颗子弹。",
+    "skill" : [
+        {
+            "name" : "厄运的眷顾",
+            "image" : "https://ossweb-img.qq.com/images/lol/img/passive/MissFortune_W.png",
+            "introduce" : "在攻击一个新目标时，厄运小姐会造成额外物理伤害。",
+            "twointroduce" : ""
+        },
+        {
+            "name" : "一箭双雕",
+            "image" : "https://ossweb-img.qq.com/images/lol/img/spell/MissFortuneRicochetShot.png",
+            "introduce" : "厄运小姐向敌方目标发射一次弹跳射击，对每个目标造成20/40/60/80/100(+1)(+0.35)物理伤害。每段射击都能施加攻击特效。",
+            "twointroduce" : "第二段射击可以暴击，造成%伤害，并且如果第一段攻击杀死了它的目标，那么第二段攻击就必定暴击。。"
+        },
+        {
+            "name" : "大步流星",
+            "image" : "https://ossweb-img.qq.com/images/lol/img/spell/MissFortuneViciousStrikes.png",
+            "introduce" : "被动：如果5秒内没有受到直接伤害，厄运小姐就会获得25移动速度。再过5秒后，这个加成会提升至60/70/80/90/100。",
+            "twointroduce" : "主动：全额激活【大步流星】的移动速度加成并提供40/55/70/85/100%攻击速度加成，持续4秒。"
+        },
+        {
+            "name" : "弹幕时间",
+            "image" : "https://ossweb-img.qq.com/images/lol/img/spell/MissFortuneBulletTime.png",
+            "introduce" : "厄运小姐向前方锥形地带扫射出持续3秒的强力弹幕，每波弹幕造成(+0.35)(+0.2)物理伤害（总波数：12/14/16）。",
+            "twointroduce" : "每一波【弹幕时间】都可以暴击并造成%伤害。"
+        }
+    ],
+    "equipment" : [
+        {
+            "introduce" : "期初装备",
+            "equ" : [
+                {
+                    "name" : "多兰之剑",
+                    "image" : "https://ossweb-img.qq.com/images/lol/img/item/1055.png"
+                },
+                {
+                    "name" : "监视图腾",
+                    "image" : "https://ossweb-img.qq.com/images/lol/img/item/3340.png"
+                }
+            ]
+        },
+        {
+            "introduce" : "核心物品",
+            "equ" : [
+                {
+                    "name" : "幽梦之灵",
+                    "image" : "https://ossweb-img.qq.com/images/lol/img/item/3142.png"
+                },
+                {
+                    "name" : "狂战士胫甲",
+                    "image" : "https://ossweb-img.qq.com/images/lol/img/item/3006.png"
+                },
+                {
+                    "name" : "黑色切割者",
+                    "image" : "https://ossweb-img.qq.com/images/lol/img/item/3071.png"
+                }
+            ]
+        },
+        {
+            "introduce" : "进攻型物品",
+            "equ" : [
+                {
+                    "name" : "疾射火炮",
+                    "image" : "https://ossweb-img.qq.com/images/lol/img/item/3094.png"
+                },
+                {
+                    "name" : "多米尼克领主的致意",
+                    "image" : "https://ossweb-img.qq.com/images/lol/img/item/3036.png"
+                },
+                {
+                    "name" : "德拉克萨的幕刃",
+                    "image" : "https://ossweb-img.qq.com/images/lol/img/item/3147.png"
+                }
+            ]
+        }
+    ]
+}
