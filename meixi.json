@@ -1,0 +1,39 @@
+{
+    "nickName": "足球先生",
+    "name": "梅西",
+    "work": "前锋",
+    "headImg": "https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=f9bcf74c8e8ba61ecbe3c07d205dfc6f/86d6277f9e2f070860b1db86e524b899a801f284.jpg",
+    "attr": {
+        "年龄" : 31,
+        "国籍" : "阿根廷",
+        "身高" : "170cm",
+        "体重" : "67kg"
+    },
+    "story" : "里奥·梅西（Lionel Messi），1987年6月24日出生于阿根廷圣菲省罗萨里奥市，阿根廷足球运动员，司职前锋，现效力于巴塞罗那足球俱乐部。2000年，梅西加入巴塞罗那俱乐部。2005年，阿根廷青年队夺取世青赛冠军，梅西赢得了金球奖和金靴奖双项大奖。2007年4月18日，梅西在国王杯半决赛对赫塔菲时复制了马拉多纳在世界杯上的连过五人进球。2008年北京奥运会上，梅西随阿根廷国奥队夺取了金牌。2009年底，他当选了欧洲足球先生和世界足球先生。梅西2008-2009赛季率领球队连夺西甲、国王杯和欧冠三个冠军。2011年，梅西获得首届国际足联金球奖，还获得了欧足联欧洲最佳球员。2013年，他以46粒联赛进球的成绩第三次获得欧洲金靴奖奖杯。2014年，梅西随阿根廷队参加2014巴西世界杯。2014年巴西世界杯上，获得世界杯亚军 [1]  。2014年12月20日，梅西被IFFHS评为2013年世界职业联赛的最佳射手奖 [2]  。2015年8月，当选欧洲超级杯最佳球员。 [3]  2015年8月27日，获得欧洲最佳球员。 [4]  2016年1月12日，梅西荣膺2015年度FIFA金球奖，五度得奖创纪录。2016年6月，在连续三次决赛（2014年世界杯、2015年美洲杯、2016年美洲杯）失利后，梅西正式宣布将退出阿根廷国家队。 [5]  8月13日，梅西正式回归阿根廷国家队。2017年11月24日，梅西领取了2016-17赛季的欧洲金靴奖，这也是其个人第四座欧洲金靴奖，四夺欧洲金靴也追平了C罗的纪录。11月25日，巴萨官方和梅西续约到2020-21赛季 [6]  。2018年9月，入选国际足联年度最佳阵容。",
+    "skill" : [
+        {
+            "name" : "金靴奖",
+            "image" : "https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=51b6c56487b1cb132a643441bc3d3d2b/a8773912b31bb0519d071da33c7adab44aede01e.jpg",
+            "introduce" : "世界杯金靴奖（Adidas Golden Boot）是国际足联授予每届世界杯决赛圈进球数最多的球员的荣誉。由于该奖项是由阿迪达斯公司出资赞助，因此奖项获得冠名。",
+            "twointroduce" : ""
+        },
+        {
+            "name" : "金球奖",
+            "image" : "https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=474b6899d6b44aed4d43b6b6d275ec64/10dfa9ec8a136327a383a9e09d8fa0ec09fac7f3.jpg",
+            "introduce" : "国际足球联合会金球奖（FIFA Ballon d'Or）是于2010年由原国际足联世界足球先生（FIFA World Player of the Year，1991年创立）和《法国足球》杂志评选的金球奖（Ballon d'Or，1956年创立）合并产生的奖项，每年颁发一次，授予上一年度表现最杰出的足球运动员。",
+            "twointroduce" : ""
+        },
+        {
+            "name" : "足球先生",
+            "image" : "https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=728712d69b529822113e3191b6a310ae/c8ea15ce36d3d53982a421d23187e950352ab001.jpg",
+            "introduce" : "国际足联世界足球先生（1991—2009年英文名：FIFA World Player of the Year，2016年后英文名：The Best FIFA Men's Player），是国际足联对在该年度有突出表现的球员所颁发的一个奖项，该奖项面向的范围是全世界男子足球运动员。",
+            "twointroduce" : ""
+        },
+        {
+            "name" : "欧冠冠军",
+            "image" : "https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=9a8c6d0c59df8db1bc2e7b623118ba69/7af40ad162d9f2d391c0487baeec8a136227cc55.jpg",
+            "introduce" : "欧洲冠军联赛（UEFA Champions League，简称欧冠）是欧洲足球协会联盟主办的年度足球比赛，代表欧洲俱乐部足球最高荣誉和水平，被认为是全世界最高素质、最具影响力以及最高水平的俱乐部赛事，亦是世界上奖金最高的足球赛事和体育赛事之一。",
+            "twointroduce" : ""
+        }
+    ]
+}
