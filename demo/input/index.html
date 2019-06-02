@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./1.css">
+</head>
+<body>
+    <div class="middle">
+        <input type="text" class="input" >
+        <button class="btn" name="button" ></button>
+    </div>
+    <script>
+        var btn = document.getElementsByClassName("btn")[0]
+        var input = document.getElementsByClassName("input")[0]
+        btn.onclick = function(){
+            btn.classList.toggle("close")
+            input.classList.toggle("incliced")
+        }
+    </script>
+</body>
+</html>
