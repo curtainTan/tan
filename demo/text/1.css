@@ -1,0 +1,86 @@
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body{
+    background-color: #f1f2f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div{
+    position: relative;
+    overflow: hidden;
+    font-size: 100px;
+    font-weight: 600;
+    color: transparent;
+}
+
+div::after{
+    content: "hell0 world";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 99em;
+    background: linear-gradient(
+        left,
+        #D1EEFF 0%,
+        rgb(234, 167, 243) 10%,
+        rgb(224, 132, 247) 20%,
+        rgb(245, 121, 234) 30%,
+        rgb(247, 108, 240) 40%,
+        rgb(235, 96, 248) 50%,
+        rgb(235, 76, 250) 60%,
+        rgb(229, 59, 245) 70%,
+        rgb(235, 50, 252) 80%,
+        rgb(233, 24, 252) 90%,
+        rgb(255, 13, 215) 100%,
+    );
+    background: -webkit-linear-gradient(
+        left,
+        #D1EEFF 0%,
+        rgb(234, 167, 243) 10%,
+        rgb(224, 132, 247) 20%,
+        rgb(245, 121, 234) 30%,
+        rgb(247, 108, 240) 40%,
+        rgb(235, 96, 248) 50%,
+        rgb(235, 76, 250) 60%,
+        rgb(229, 59, 245) 70%,
+        rgb(235, 50, 252) 80%,
+        rgb(233, 24, 252) 90%,
+        rgb(255, 13, 215) 100%,
+    );
+    -webkit-background-clip: text;
+    background-clip: content-box;
+    color: transparent;
+    animation: hello 38s ease infinite;
+}
+
+
+@keyframes hello {
+    0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: -25em 0;
+    }
+    50% {
+        background-position: -50em 0;
+    }
+    75% {
+        background-position: -75em 0;
+    }
+    100% {
+        background-position: -99em 0;
+    }
+}
+
+
+
+
+
+
