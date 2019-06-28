@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>球体移动</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #mycanvas{
+            display:block;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mycanvas"></canvas>
+    <script>
+        var Ww=window.innerWidth;
+        var Wh=window.innerHeight;
+        var canvas=document.getElementById('mycanvas');
+        var ctx=canvas.getContext('2d');
+        canvas.width=Ww;
+        canvas.height=Wh;
+        var particles=[];//存放粒子
+
+
+        //创建粒子对象
+        function Particle(){this.init();};
+        Particle.prototype.init=function(){
+            this.color="rgb("+random(0,255)+","+random(0,255)+","+random(0,255)+")";
+            //粒子位置
+            this.x=random(0,Ww);
+            this.y=random(0,Wh);
+            //粒子速度
+            this.vx=(Math.random()-0.5)*2;
+      	    this.vy=(Math.random()-0.5)*2;
+            //粒子半径
+            this.r=random(1,5);
+        }
+        Particle.prototype.draw=function(){
+            ctx.beginPath();
+            ctx.fillStyle=this.color;
+            ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+            ctx.fill();
+            ctx.closePath();
+        }
+        Particle.prototype.update=function(){
+            this.x+=this.vx;
+            this.y+=this.vy;
+            if(this.x<0||this.x>Ww){
+                this.vx=(-1)*this.vx;
+            }
+            if(this.y<0||this.y>Wh){
+                this.vy=(-1)*this.vy;
+            }
+        }
+        init(30);
+        function init(num){
+            for(let i=0;i<num;i++){
+                particles.push(new Particle());
+            }
+            render();
+        }
+        //粒子渲染
+        function render(){
+            ctx.beginPath();
+            ctx.fillStyle="#000";
+            ctx.fillRect(0,0,Ww,Wh);
+            for(let i=0,len=particles.length;i<len;i++){
+                particles[i].draw();
+                particles[i].update();
+            }
+            connection();
+            requestAnimationFrame(render);
+        }
+        //粒子间连线
+        function connection(){
+            for(var i=0,len=particles.length;i<len;i++){
+                for(var j=0;j<len;j++){
+                    var dot1=particles[i];
+                    var dot2=particles[j];                   
+                    if((Math.pow(dot1.x-dot2.x,2)+Math.pow(dot1.y-dot2.y,2))<3600){
+                        ctx.lineWidth=0.2;
+                        ctx.beginPath();
+                        ctx.strokeStyle="#fff";
+                        ctx.moveTo(dot1.x,dot1.y);
+                        ctx.lineTo(dot2.x,dot2.y);
+                        ctx.stroke();
+                        ctx.closePath();
+                    }
+                }
+            }
+        }
+
+        function random(min,max){
+            return Math.round(Math.random()*(max-min)+min);
+        }
+    </script>
+</body>
+</html>

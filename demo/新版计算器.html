@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一步计算器</title>
+</head>
+<body>
+    <style>
+    .heart{
+            display: none;
+            position: absolute;
+            top: 25%;
+            left: 30%;
+            transform: translate(-50%,-50%) rotate(45deg);
+            background: rgb(255, 0, 0);
+            width: 100px;
+            height: 100px;
+        }
+        .heart::before,
+        .heart::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: red;
+        }
+        .heart::after{
+            top: -50px;
+            left: 0;
+        }
+    .btn{
+        margin: 0;
+        padding: 0；
+    }
+    ul{
+        padding-left: 30px;
+    }
+    li{
+        list-style: none;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+        border: 1px solid #000;
+        text-align: center;
+        margin: 5px;
+        border-radius: 6px;
+    }
+    li:hover{
+        background-color: aqua;
+    }
+    .box{
+        width: 300px;
+        margin: 0 auto;
+        border: 1px solid #000;
+        height: 400px;
+        position: relative;
+        margin-top: 80px;  
+    }
+    .explain{
+        width: 300px;
+        margin: 0 auto;
+        position: relative;
+        margin-top: 80px; 
+        font-family: 微软雅黑;
+    }
+    .result{
+        width: 80%;
+        height: 100px;
+        border: 1px solid #000;
+        margin: 30px; 
+        overflow: hidden;  
+    }
+    .process{
+        width: 100%;
+        height: 50px;
+        text-align: end;
+        font-size: 40px;
+        overflow: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .good{
+        width: 100%;
+        height: 50px;
+        text-align: end;
+        font-size: 40px;
+        overflow: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    a{
+        text-decoration: none;
+    }
+</style>
+<body>
+    <div class="heart"></div>
+    <div class="box">
+        <div class="result">
+            <div class="process">0</div>
+            <div class="good"></div>
+        </div>
+        <div class="btn">
+            <ul>
+                <li class="symbal"><a href="#" >C</a></li>
+                <li class="symbal"><a href="#">←</a></li>
+                <li class="num"><a href="#">+</a></li>
+                <li class="num"><a href="#">-</a></li>
+                <li class="num"><a href="#">*</a></li>
+                <li class="num"><a href="#">/</a></li>
+                <li class="symbal"><a href="#">=</a></li>
+                <li class="space"><a href="#">&nbsp;&nbsp;</a></li>
+                <li class="num"><a href="#">6</a></li>
+                <li class="num"><a href="#">7</a></li>
+                <li class="num"><a href="#">8</a></li>
+                <li class="num"><a href="#">9</a></li>
+                <li class="num"><a href="#">2</a></li>
+                <li class="num"><a href="#">3</a></li>
+                <li class="num"><a href="#">4</a></li>
+                <li class="num"><a href="#">5</a></li>
+                <li class="num"><a href="#">0</a></li>
+                <li class="num"><a href="#">1</a></li>
+                <li class="num"><a href="#">.</a></li>
+            </ul>
+            <audio id="audio" src="http://music.163.com/song/463452258">bifang</audio>
+        </div>
+    </div>
+    <div class="explain">
+        <h3>一步计算机 &nbsp;&nbsp;V&nbsp;1.1.9版本</h3>
+        <h4>升级说明：</h4>
+        1.第二次升级退格问题.<br>
+        2.修改等号后面又可加等号的问题。<br>
+        3.修复等号后面输入数字的问题。<br>
+        欢迎大家使用。    <br>
+        <span>2018.1.27</span>
+        <h4>V&nbsp;1.1.8版本</h4>
+        1.升级退格问题。<br>
+        <span>2018.1.27</span>
+        <h4>V&nbsp;1.1.7版本</h4>
+        1.新的算法，修复退格的bug，几近完美的计算机。<br>
+        2.由可多部计算机改名为一步计算器。<br>
+        <br>
+        感谢：李昌义学长的指点。<br>
+        <span>2018.1.27</span>
+        <h4>V&nbsp;1.1.6版本</h4>
+        1.修复等号后乘除法按照之前标记的结果运算的bug。
+        <br>
+        <span>2018.1.27</span>
+        <h4>V&nbsp;1.1.5版本</h4>
+        1.可双行显示计算内容. <br>
+        <span>2018.1.26</span>
+        <h4>计算机说明：</h4>
+        此版本为最终版本，<br><br><br>
+        @谢谢使用
+        <br><br><br><br>
+    </div>
+    <script>
+        var heart = document.getElementsByClassName('heart');
+        var process = document.getElementsByClassName('process');
+        var oa = document.getElementsByTagName('a');
+        var good = document.getElementsByClassName('good');
+        var num = document.getElementsByClassName('num');
+        var symbal = document.getElementsByClassName('symbal');
+        var flag = 0;                //标记整个运算过程的长度，超长了就调整字体和显示
+        var all = 0;                 //总和，并且每次保留，
+        var tan = ""; var xing = "";     //空字符串，用于保留前一次的运算输入的过程,和下次计算过程
+        var wang = 0;                  //记录后续运算过程tan的长度，退格的时候防止退超前一次运算的等号
+        //去除a标签的跳转效果
+        for (var i = 0; i < oa.length; i++) {
+            oa[i].disable = true;
+            oa[i].onclick = function () {
+            return false;
+            }
+        }
+        //获取数字
+        for ( i = 4 ; i < num.length; i++){
+            num[i].onclick = function () {
+                //若数字前是等号，则不能输入数字
+                var pan = process[0].innerText.split('');
+                var panlen = process[0].innerText.length - 1;
+                if (pan[panlen] == '=') return 0;
+                flag++;
+                wang++;
+                //获取当前运算的运算过程
+                tan +=  this.innerText;
+                //此处为判断整个计算过程的长度，
+                if (flag > 9 && flag < 20) process[0].style.fontSize = 20 + 'px';
+                if (flag === 20) process[0].innerText += '\n';
+                //计算整个过程显示第一个数清零和加零
+                if (flag > 1) process[0].innerText += this.innerText;
+                else process[0].innerText = this.innerText;
+            }
+        }
+        //获取运算符
+        for ( i = 0 ; i < 4 ; i++ ){
+            num[i].onclick = function () {
+                
+                var ss = tan.split('');
+                var kk = tan.length - 1;
+                //判断最后一个字符是否为运算符，若为运算符，就把最后一个运算符转换为当前运算符
+                //并且flag标记不增加，tan字符串长度wang不加
+                if(ss[kk] == '+' || ss[kk] == '-' ||  ss[kk] == '/' || ss[kk] == '*'){
+                    console.log( "00" + ss[kk] );
+                    tan = tan.substring(0, tan.length - 1);
+                    process[0].innerText = process[0].innerText.substring(0, process[0].innerText.length - 1);
+                    tan += this.innerText;
+                    process[0].innerText += this.innerText;
+                }else{
+                    flag++; wang++;
+                    tan += this.innerText;
+                    process[0].innerText += this.innerText;
+                } 
+                //此处为判断整个计算过程的长度，
+                if (flag > 9 && flag < 20) process[0].style.fontSize = 20 + 'px';
+                if (flag === 20) process[0].innerText += '\n';
+            }
+        }
+        //清除
+        symbal[0].onclick = function () {
+            process[0].innerText = "0";
+            process[0].style.fontSize = 40 + 'px';
+            good[0].innerText = "";
+            tan = "";  xing = ""; wang = 0;
+            flag = 0;
+            all = 0;
+        }
+        //退格
+        symbal[1].onclick = function () {
+            if(wang > 0){
+                process[0].innerText = process[0].innerText.substring(0, process[0].innerText.length - 1);
+                tan = tan.substring( 0 , tan.length - 1);  wang--;
+            } 
+        }
+        //等于
+        symbal[2].onclick = function () {
+            wang = 0;
+            //判断整个计算过程的最后一位是否是等于，若是，直接结束
+            var pan = process[0].innerText.split('');
+            var panlen = process[0].innerText.length - 1;
+            if (pan[panlen] == '=') return 0;
+            //若计算过程的最后一位不是等于，就就行相应的计算
+            flag++;
+            if (flag > 9 && flag < 20) process[0].style.fontSize = 20 + 'px';
+            if (flag >= 20) process[0].innerText += '\n';
+            process[0].innerText += this.innerText;
+            //判断最后一个符号是否为运算符或等于符号，是，就删除他，不是就不用删除
+            var ss = tan.split('');
+            var kk = tan.length - 1;
+            //for ( kk = 0; kk < tan.length; kk++ )
+            if (ss[kk] == '+' || ss[kk] == '-' || ss[kk] == '/' || ss[kk] == '*'){
+                    tan = tan.substring(0, tan.length - 1);
+                    console.log(tan);
+                    all = eval( xing  + tan ); xing = "(" + xing + tan + ")"; tan = "";
+            }else{//此处为，等号前面不是运算符或者等于符号，若不是则正常运算
+                tan = tan.substring(0, tan.length);
+                all = eval(xing + tan); xing = "(" + xing + tan + ")"; tan = "";
+            }
+            console.log(xing);
+            //  得出计算结果。并输出计算结果
+            if (all == 520 | all == 521) {
+                good[0].innerText = 'i love you！';
+                heart[0].style.display = 'block';}
+            else {good[0].innerText = all; heart[0].style.display = 'none';}
+        }
+    </script>
+</body>
+</html>
