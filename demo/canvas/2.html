@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            background: pink;
+        }
+        #test{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width="300" height="300" >
+        <span>您的浏览器不支持canvas浏览器---</span>
+    </canvas>
+    <script>
+        window.onload = function(){
+            var testNode = document.querySelector( "#test" )
+            if( testNode.getContext ){
+                // console.log( "获取到画笔", testNode )
+                ctx = testNode.getContext("2d")
+                // 填充的矩形
+                ctx.fillStyle = "deeppink"    // 填充颜色
+                
+                ctx.strokeStyle = "pink"      // 边框颜色
+                ctx.lineWidth = 10            // 设置线的宽细
+                ctx.lineJoin = "round"        // round - 圆角，bevel - 斜角， miter-直角 
+
+                ctx.fillRect( 0, 0, 100, 100 )
+                // 带边框的矩形   --- 1像素边框
+                // ctx.strokeRect( 100.5, 100.5, 100, 100 )
+                ctx.strokeRect( 100, 100, 100, 100 )
+
+                ctx.clearRect( 100, 100, 100, 100 )
+            }
+        }
+    </script>
+</body>
+</html>
