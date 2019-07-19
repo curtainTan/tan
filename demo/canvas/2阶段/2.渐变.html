@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            background: pink;
+        }
+        #canvas{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400" >
+        <span>您的浏览器不支持canvas浏览器---</span>
+    </canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.querySelector( "#canvas" )
+            if( canvas.getContext ){
+                console.log( "获取到画笔", canvas )
+                ctx = canvas.getContext("2d")
+                var gradient = ctx.createLinearGradient( 0, 0, 300, 300, 400, 400 ) // 只看前面两个点
+                gradient.addColorStop( 0, "red" )
+                gradient.addColorStop( 0.5, "yellow" )
+                gradient.addColorStop( 1, "green" )
+                ctx.fillStyle = gradient
+                ctx.fillRect( 0, 0, 300, 300 )
+            }
+        }
+    </script>
+</body>
+</html>

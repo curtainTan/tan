@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            background: pink;
+        }
+        #canvas{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400" >
+        <span>您的浏览器不支持canvas浏览器---</span>
+    </canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.querySelector( "#canvas" )
+            if( canvas.getContext ){
+                console.log( "获取到画笔", canvas )
+                ctx = canvas.getContext("2d")
+                // translate( x, y )  重新设置画布上的(0,0)位置著作权归作者所有。
+                //效果是累加的，
+                // ctx.translate( 50, 50 )
+                // ctx.translate( 50, 50 )
+                // 缩放   (x, y)    缩放的是画笔的比例
+                ctx.save()
+                ctx.scale( 1.5, 1.5 )
+                // ctx.rotate( 45 * Math.PI / 180 )
+                // 接收一个弧度，累加,顺时针旋转。以左上角为基础
+                ctx.beginPath()
+                ctx.fillRect( 100, 100, 100, 100 )
+
+
+                ctx.restore()
+                ctx.beginPath()
+                ctx.moveTo( 0, 0 )
+                ctx.lineTo( 50, 50 )
+                ctx.stroke()
+            }
+        }
+    </script>
+</body>
+</html>

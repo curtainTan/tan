@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            background: pink;
+        }
+        #canvas{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400" >
+        <span>您的浏览器不支持canvas浏览器---</span>
+    </canvas>
+    <script>
+        window.onload = function(){
+            var flag = 0
+            var scale = 0
+            var flagScale = 0
+            var canvas = document.querySelector( "#canvas" )
+            if( canvas.getContext ){
+                console.log( "获取到画笔", canvas )
+                ctx = canvas.getContext("2d")
+
+                ctx.save()
+                ctx.translate( 200, 200 )
+                ctx.fillRect( -50, -50, 100, 100 )
+                ctx.restore()
+                // ctx.rotate( 45 * Math.PI / 180 )
+
+                setInterval( () => {
+                    flag++
+                    ctx.clearRect( 0, 0, canvas.width, canvas.height )
+                    ctx.save()
+                    ctx.translate( 200, 200 )
+                    ctx.rotate( flag * Math.PI / 180 )
+
+                    if( scale === 100 ){
+                        flagScale = -1
+                    } else if( scale === 0 ) {
+                            flagScale = 1                    
+                    }
+                    scale += flagScale
+                    // console.log( scale )
+                    ctx.scale( scale/50, scale/50 )
+
+                    ctx.beginPath()
+                    ctx.fillRect( -50, -50, 100, 100 )
+                    ctx.restore()
+                }, 100 )
+
+                ctx.restore()
+            }
+        }
+    </script>
+</body>
+</html>

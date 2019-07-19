@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            background: pink;
+        }
+        #canvas{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600" >
+        <span>您的浏览器不支持canvas浏览器---</span>
+    </canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.querySelector( "#canvas" )
+            if( canvas.getContext ){
+                console.log( "获取到画笔", canvas )
+                ctx = canvas.getContext("2d")
+                var img = new Image()
+                img.src = "1.jpg"
+                img.onload = function(){
+                    patternDraw()
+                }
+                function draw(){
+                    ctx.drawImage( img, 0, 0, 400, 300 )
+                }
+
+                // 在canvas中使用背景
+                // createPattern   
+                // 返回的对象可以作为fillstyle的值(参数：image, repetition--repeat,repeat-x, repeat-y,no-repeat)
+                function patternDraw(){
+                    var pattern = ctx.createPattern( img, "no-repeat" )
+                    ctx.fillStyle = pattern
+                    ctx.fillRect( 0, 0, 600, 500 )
+                }
+            }
+        }
+    </script>
+</body>
+</html>
