@@ -29,7 +29,7 @@
     </style>
 </head>
 <body>
-    <canvas id="canvas" width="400" height="400" >
+    <canvas id="canvas" >
         <span>您的浏览器不支持canvas浏览器---</span>
     </canvas>
     <script>
@@ -38,26 +38,6 @@
             if( canvas.getContext ){
                 console.log( "获取到画笔", canvas )
                 ctx = canvas.getContext("2d")
-                // ctx.fillStyle = "pink"
-                ctx.fillStyle = "rgba( 255, 192, 203, 100 )"
-                ctx.fillRect( 100, 100, 100, 100 )
-
-                // getImageData( sx, sy, sw, sh )
-                // width：横向像素点个数
-                // data: 数组  ---  每个像素点的rgba   canvas透明度为255， 
-                var imageData = ctx.getImageData( 100, 100, 100, 100 )
-                for( var i = 0; i < imageData.data.length; i ++ ){
-                    imageData.data[ 4 * i + 3 ] = 100
-                }
-                ctx.putImageData( imageData, 0, 0 )
-                // putImageData( image, x, y ) 写入像素
-                // createImageDate( w, h )
-                var createImageData = ctx.createImageData( 100, 100 )
-                for( var i = 0; i < createImageData.data.length; i ++ ){
-                    createImageData.data[ 4 * i + 3 ] = 200
-                }
-                ctx.putImageData( createImageData, 200, 200 )
-
             }
         }
     </script>

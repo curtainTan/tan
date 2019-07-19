@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            background: pink;
+        }
+        #canvas{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400" >
+        <span>您的浏览器不支持canvas浏览器---</span>
+    </canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.querySelector( "#canvas" )
+            if( canvas.getContext ){
+                ctx = canvas.getContext("2d")
+                ctx.save()
+                ctx.fillStyle = "pink"
+                ctx.beginPath()
+                ctx.fillRect( 100, 100, 100, 100 )
+                ctx.restore()
+                var imageData = ctx.getImageData( 0, 0, canvas.width, canvas.height )
+                var color = getPxData( imageData, 100, 100 )
+                // console.log( color )
+                // setPxData( imageData, 49, 49, [ 0, 0, 0, 255 ] )
+                for( var i = 0; i < imageData.width; i ++ ){
+                    setPxData( imageData, 49, i, [ 0, 0, 0, 255 ] )
+                }
+                ctx.putImageData( imageData, 0, 0 )
+            }
+
+            function getPxData( imageData, x, y ){
+                var color = []
+                var data = imageData.data
+                var w = imageData.width
+                var h = imageData.height
+                // r, g, b, a   // ( 3, 3 ) // x*w+y
+                color[0] = data[ (x*w + y)*4 ]
+                color[1] = data[ (x*w + y)*4 + 1 ]
+                color[2] = data[ (x*w + y)*4 + 2 ]
+                color[3] = data[ (x*w + y)*4 + 3 ]
+                return color
+            }
+
+            function setPxData( imageData, x, y, color ){
+                var data = imageData.data
+                var w = imageData.width
+                // var h = imageData.height
+                // r, g, b, a   // ( 3, 3 ) // x*w+y
+                data[ (x*w + y)*4 ] = color[0]
+                data[ (x*w + y)*4 + 1 ] = color[1]
+                data[ (x*w + y)*4 + 2 ] = color[2]
+                data[ (x*w + y)*4 + 3 ] = color[3]
+            }
+
+            // 修改一行像素
+        }
+    </script>
+</body>
+</html>
