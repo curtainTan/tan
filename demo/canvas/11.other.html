@@ -32,36 +32,40 @@
     <canvas id="canvas" width="400" height="400" >
         <span>您的浏览器不支持canvas浏览器---</span>
     </canvas>
+    <button onclick="save()" >保存</button>
+    <div class="box"></div>
     <script>
+        function save(){
+            var img = new Image()
+            img.src = canvas.toDataURL( "image/png" )
+            img.onload = function(){
+                console.log( "save", img )
+                var alink = document.createElement( "a" )
+                alink.download = "downImg"
+                alink.href = img.src
+                alink.click()
+                document.getElementsByClassName( "box" )[0].appendChild( img )
+            }
+        }
         window.onload = function(){
             var canvas = document.querySelector( "#canvas" )
             if( canvas.getContext ){
                 console.log( "获取到画笔", canvas )
                 ctx = canvas.getContext("2d")
-                // quadraticCurveTo( x1, y1, x2, y2 )  创建二次贝塞尔曲线
-                // bezierCurveTo( x1, y1, x2, y2, x3, y3)   创建三次贝塞尔曲线
-                ctx.beginPath()
-                ctx.moveTo( 50, 50 )
-                ctx.quadraticCurveTo( 300, 0, 200, 200 )
-                ctx.stroke()
-
-                ctx.beginPath()
-                ctx.moveTo( 100, 100 )
-                ctx.lineTo( 150, 200 )
-                ctx.lineTo( 250, 250 )
-                ctx.lineTo( 400, 200 )
-                ctx.stroke()
-
-                ctx.beginPath()
-                ctx.moveTo( 100, 100 )
-                ctx.bezierCurveTo( 150, 200, 250, 250, 400, 200 )
-                ctx.stroke()
-
-                var res = ctx.toDataURL()
-                // 转成图片
-                
-
+                // ctx.fillRect( 100, 100, 100, 100 )
+                ctx.arc( 100, 100, 50, 0, 360*Math.PI/180 )
+                ctx.fill()
+                canvas.onclick = function( ev ){
+                    console.log( "99999" )
+                    ev = ev || event
+                    var x = ev.clientX - canvas.offsetLeft
+                    var y = ev.clientY - canvas.offsetTop
+                    if( ctx.isPointInPath( x, y ) ){
+                        alert( "123" )
+                    }
+                }
             }
+
         }
     </script>
 </body>

@@ -12,7 +12,6 @@
         }
         html, body{
             height: 100%;
-            overflow: hidden;
         }
         body{
             background: pink;
@@ -38,6 +37,63 @@
             if( canvas.getContext ){
                 console.log( "获取到画笔", canvas )
                 ctx = canvas.getContext("2d")
+                var img = new Image()
+                img.src = "/3/m1.jpg"
+                img.onload = function (){
+                    canvas.width = img.width * 2
+                    canvas.height = img.height
+                    draw()
+                }
+                function draw(){
+                    ctx.drawImage( img, 0, 0 )
+
+                    var oldImgData = ctx.getImageData( 0, 0, img.width, img.height ) 
+                    var newImgData = ctx.createImageData( img.width, img.height )
+                    console.dir( oldImgData )
+
+                    // 选取矩形
+                    // 从马赛克矩形中选取颜色
+                    // 将整个矩形中的颜色设置成一个颜色
+                    var size = 5
+                    for( var i = 0; i < oldImgData.width / size; i ++ ){
+                        for( var j = 0; j < oldImgData.height / size; j ++ ){
+                            // ( i, j )一个坐标
+                            var color = getPxData( oldImgData, i * size + Math.floor(Math.random()*size),j * size + Math.floor(Math.random()*size) )
+
+                            for( var a = 0; a < size; a ++ ){
+                                for( var b = 0; b < size ; b ++  ){
+                                    setPxData( newImgData, i * size + a, j * size + b, color )
+                                }
+                            }
+                        }
+                    }
+
+                    ctx.putImageData( newImgData, img.width, 0 )
+                }
+                
+                function getPxData( imageData, x, y ){
+                    var color = []
+                    var data = imageData.data
+                    var w = imageData.width
+                    var h = imageData.height
+                    // r, g, b, a   // ( 3, 3 ) // x*w+y
+                    color[0] = data[ (y*w + x)*4 ]
+                    color[1] = data[ (y*w + x)*4 + 1 ]
+                    color[2] = data[ (y*w + x)*4 + 2 ]
+                    color[3] = data[ (y*w + x)*4 + 3 ]
+                    return color
+                }
+
+                function setPxData( imageData, x, y, color ){
+                    var data = imageData.data
+                    var w = imageData.width
+                    // var h = imageData.height
+                    // r, g, b, a   // ( 3, 3 ) // x*w+y
+                    data[ (y*w + x)*4 ] = color[0]
+                    data[ (y*w + x)*4 + 1 ] = color[1]
+                    data[ (y*w + x)*4 + 2 ] = color[2]
+                    data[ (y*w + x)*4 + 3 ] = color[3]
+                }
             }
         }
     </script>
